@@ -13,7 +13,6 @@ import java.util.Locale;
 
 public class Formatter {
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @NonNull
     public static String getTodayDate() {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM", Locale.getDefault());
@@ -24,15 +23,15 @@ public class Formatter {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static String nowTime(){
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm a", Locale.getDefault());
         Calendar cal = Calendar.getInstance();
         Date date = cal.getTime();
 
         return dateFormat.format(date);
     }
 
+    @NonNull
     public static String whichMonth(@NonNull String date) {
         String day = date.substring(0,2);
         int dayInt = Integer.parseInt(day);
