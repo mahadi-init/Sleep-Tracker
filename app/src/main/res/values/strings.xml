@@ -7,4 +7,5 @@
     <string name="wake_up">Wake Up</string>
     <string name="sleep">Sleep</string>
     <string name="today_is">Today is</string>
+    <string name="set_alarm">Set Alarm</string>
 </resources>

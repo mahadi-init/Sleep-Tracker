@@ -1,11 +1,7 @@
 package com.example.sleeptracker.ui;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -23,7 +19,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.recordArrayList = recordArrayList;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
         private final CardviewBinding binding;
 
         public ViewHolder(@NonNull CardviewBinding binding) {
@@ -43,6 +39,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Record record = recordArrayList.get(position);
+
         holder.binding.date.setText(record.getDate());
         holder.binding.wakeup.setText("Wakeup : " + record.getWakeup());
         holder.binding.sleep.setText("Sleep : " + record.getSleep());

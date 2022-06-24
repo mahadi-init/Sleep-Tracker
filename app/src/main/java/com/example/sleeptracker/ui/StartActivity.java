@@ -9,14 +9,17 @@ import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sleeptracker.R;
+import com.example.sleeptracker.databinding.ActivityStartBinding;
 import com.example.sleeptracker.utils.Formatter;
 
 public class StartActivity extends AppCompatActivity {
+    private ActivityStartBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(Color.WHITE);
+        binding = ActivityStartBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_start);
 
         moveToMainActivity(Formatter.getTodayDate());
@@ -28,6 +31,6 @@ public class StartActivity extends AppCompatActivity {
             intent.putExtra("date", todayDate);
             startActivity(intent);
             finish();
-        }, 2000);
+        }, 1500);
     }
 }

@@ -3,6 +3,7 @@ package com.example.sleeptracker.ui;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
@@ -44,11 +45,19 @@ public class MainActivity extends AppCompatActivity {
     private void buttonEventListener() {
         binding.analogClock.setOnClickListener(v -> moveToTrackerActivity());
 
+        binding.alarm.setOnClickListener(v -> alarm());
+
         binding.btnWakeup.setOnClickListener(v -> {
             dbHelper.updateData(todayDate,"wakeup",Formatter.nowTime());
         });
 
         binding.btnSleep.setOnClickListener(v -> dbHelper.updateData(todayDate,"sleep",Formatter.nowTime()));
+    }
+
+    private void alarm(){
+        Intent intent = new Intent();
+        intent.setAction(AlarmClock.ACTION_SET_ALARM);
+        startActivity(intent);
     }
 
     private void moveToTrackerActivity() {

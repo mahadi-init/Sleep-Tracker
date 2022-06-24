@@ -30,8 +30,8 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("date", date);
-        contentValues.put("wakeup", "");
-        contentValues.put("sleep", "");
+        contentValues.put("wakeup", "not assigned yet");
+        contentValues.put("sleep", "not assigned yet");
 
         DB.insert("sleepDetails", null, contentValues);
     }
