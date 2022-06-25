@@ -51,6 +51,17 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
     }
 
     @Override
+    public void deleteData(String date) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+
+        Cursor cursor = DB.rawQuery("SELECT * FROM sleepDetails WHERE date = ?", new String[]{date});
+        if(cursor.getCount() > 0){
+            DB.delete("sleepDetails","date=?", new String[]{date});
+            cursor.close();
+        }
+    }
+
+    @Override
     public Cursor getData() {
         SQLiteDatabase DB = this.getWritableDatabase();
         return DB.rawQuery("Select * from sleepDetails ORDER BY date ASC", null);
